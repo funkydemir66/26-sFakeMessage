@@ -85,7 +85,7 @@ def konusma(msj):
             font = int(text[(len(FONT2)):])
         if ac:
             ext.send_to_client(
-                '{in:' + KATMER + '}{i:123456789}{s:" ' + str(font) + ' the player in the code you chose"}{i:0}{i:30}{i:0}{i:0}')
+                '{in:' + KATMER + '}{i:123456789}{s:" ' + str(font) + ' you chose this font"}{i:0}{i:30}{i:0}{i:0}')
 
 
 def yukle_kod2(p):
