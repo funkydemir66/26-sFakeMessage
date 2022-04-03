@@ -87,6 +87,16 @@ def konusma(msj):
             ext.send_to_client(
                 '{in:' + KATMER + '}{i:123456789}{s:" ' + str(font) + ' you chose this font"}{i:0}{i:30}{i:0}{i:0}')
 
+    if text == ':msg reset':
+        msj.is_blocked = True
+        ac = False
+        mod = ""
+
+    if text == ':pla reset':
+        msj.is_blocked = True
+        ac = False
+        kod2 = ""
+
 
 def yukle_kod2(p):
     global kod2, sec_player
