@@ -5,7 +5,7 @@ from g_python.hmessage import Direction
 
 extension_info = {
     "title": "26'sFakeMessage",
-    "description": ":fm on&off&msg&pla&tpla&font,:msg on&off",
+    "description": ":fm on&off&msg&pla&&font,:msg on&off",
     "version": "2.0",
     "author": "funkydemir66"
 }
@@ -34,13 +34,6 @@ def konusma(msj):
 
 
     text = msj.packet.read_string()
-
-
-    if text == ':fm tpla':
-        msj.is_blocked = True
-        sec_player = True
-        if ac:
-            ext.send_to_client('{in:Chat}{i:123456789}{s:"more :fm msg (what you will say)"}{i:0}{i:30}{i:0}{i:0}')
 
     if text == ':fm on':
         msj.is_blocked = True
@@ -98,26 +91,6 @@ def konusma(msj):
         kod2 = ""
 
 
-def yukle_kod2(p):
-    global kod2, sec_player
-
-    if sec_player:
-        player_id, _, _ = p.packet.read("iii")
-        kod2 = str(player_id)
-        ext.send_to_client('{in:Chat}{i:123456789}{s:"idd: saved "}{i:0}{i:30}{i:0}{i:0}')
-        sec_player = False
-
-def yukle_kod3(p):
-    global kod3, sec_player2
-
-    if sec_player:
-        player_id2, _ = p.packet.read("ii")
-        kod3 = str(player_id2)
-        ext.send_to_client('{in:Chat}{i:123456789}{s:"idd: saved "}{i:0}{i:30}{i:0}{i:0}')
-        sec_player2 = False
-
-
 ext.intercept(Direction.TO_SERVER, konusma, 'Chat')
-ext.intercept(Direction.TO_SERVER, yukle_kod2, 'OpenTrading')
-ext.intercept(Direction.TO_SERVER, yukle_kod3, 'PassCarryItem')
+
 
